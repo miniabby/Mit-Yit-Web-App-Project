@@ -1,0 +1,60 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+    .container
+        h1 View Review
+        section#backbutton
+            a.btn.btn-primary(href='/review',class="button") Back
+
+        div(class='empty') #{empty}
+
+        each review in reviews
+            section#reviews
+                table#singlereview
+                    tr 
+                        td.reviewlabel From:
+                        td.reviewcontent #{review.from} 
+                    tr 
+                        td.reviewlabel Tag:
+                        td.reviewcontent #{review.tag} 
+                    tr
+                        td.reviewlabel Rating: 
+                        td.reviewcontent 
+                            .stars-outer
+                                .datarating #{review.rating}
+                                .stars-inner
+                            
+                    tr 
+                        td.reviewlabel Comment:
+                        td.reviewcontent #{review.comment}
+    
+    script.
+        const ratings = document.getElementsByClassName("datarating");
+        
+        var stars = document.getElementsByClassName("stars-inner");
+        console.log(ratings);
+        
+        console.log(stars);
+        const starTotal = 5;
+
+        for (let i = 0; i < ratings.length; i++){
+            const starPercentage = `${(ratings[i].innerHTML / starTotal) * 100}%`;
+            console.log(starPercentage);
+            stars[i].style.width=starPercentage;
+        }

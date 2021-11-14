@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+
+    .container
+        h1 Review
+        div(class='msg') #{msg}
+        section#writereview
+            a(href='/review/write')
+                img#icon.writereview(src='/images/writereview.png', alt='write review icon')
+            p Say Something about your mate...
+        aside#viewreview
+            a(href='/review/view')
+                img#icon.viewreview(src='/images/checkreview.png', alt='view review icon')
+            p How do him/her think about you...

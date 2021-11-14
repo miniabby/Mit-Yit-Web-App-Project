@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+    .container
+        h1#title Welcome to Mit&Yit
+        p#indexintro We bring people together through foods
+
+        div(class='msg') #{msg}
+        section#register
+            a(href='/user/signup')
+                img#icon.register(src='/images/register.png', alt='register icon')
+            p Register
+        aside#login
+            a(href='/user/login')
+                img#icon.login(src='/images/login.png', alt='login icon')
+            p Login

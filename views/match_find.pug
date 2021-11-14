@@ -1,0 +1,100 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+
+    .container
+        h1 Find A Match
+        section#backbutton
+            a.btn.btn-primary(href='/match',class="button") Back
+        
+        section#matching
+            form(method="POST" action='/match/result')
+                h2 I'm available for
+                #form-group
+                    label.availability Lunch
+                        input(type='checkbox' name='lunch' value="Yes")
+                        span.checkmark
+                    label.availability Dinner
+                        input(type='checkbox' name='dinner' value="Yes")
+                        span.checkmark
+                    label.availability Coffee/quick-bite
+                        input(type='checkbox' name='coffee' value="Yes")
+                        span.checkmark
+                br
+                br
+                h2 I'm craving for
+                p.comment (choose up to 3 cuisines)
+
+                #form-group
+                    label Cuisine1:
+                    select.cuisine(name='first')
+                        option(value='', selected) Choose here
+                        option(value='American') American
+                        option(value='British') British
+                        option(value='Chinese') Chinese
+                        option(value='French') French
+                        option(value='Greek') Greek
+                        option(value='Indian') Indian
+                        option(value='Italian') Italian
+                        option(value='Japanese') Japanese
+                        option(value='Korean') Korean
+                        option(value='Mediterranean') Mediterranean
+                        option(value='Mexican') Mexican
+                        option(value='Spanish') Spanish
+                        option(value='Thai') Thai
+
+
+                #form-group
+                    label Cuisine2:
+                    select.cuisine(name='second')
+                        option(value='', selected) Choose here
+                        option(value='American') American
+                        option(value='British') British
+                        option(value='Chinese') Chinese
+                        option(value='French') French
+                        option(value='Greek') Greek
+                        option(value='Indian') Indian
+                        option(value='Italian') Italian
+                        option(value='Japanese') Japanese
+                        option(value='Korean') Korean
+                        option(value='Mexican') Mexican
+                        option(value='Mediterranean') Mediterranean
+                        option(value='Spanish') Spanish
+                        option(value='Thai') Thai
+                
+                #form-group
+                    label Cuisine3:
+                    select.cuisine(name='third')
+                        option(value='', selected) Choose here
+                        option(value='American') American
+                        option(value='British') British
+                        option(value='Chinese') Chinese
+                        option(value='French') French
+                        option(value='Greek') Greek
+                        option(value='Indian') Indian
+                        option(value='Italian') Italian
+                        option(value='Japanese') Japanese
+                        option(value='Korean') Korean
+                        option(value='Mexican') Mexican
+                        option(value='Mediterranean') Mediterranean
+                        option(value='Spanish') Spanish
+                        option(value='Thai') Thai
+
+                br
+                input#matchbutton.btn.btn-primary(class="button",type="submit", value='Match')

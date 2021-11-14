@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon') 
+
+
+
+    .container#hometag
+        h1#title Welcome to Mit&Yit
+        
+        ul.tag(style='list-style-type:none;')
+            li
+                a(href='/user/profile')
+                    #icon
+                        img.user(src='/images/user.png', alt='user icon')
+                p Profile
+            li
+                a(href='/match')
+                    #icon
+                        img.match(src='/images/match.png', alt='match icon')
+                p Matching
+            li
+                a(href='/review')
+                    #icon
+                        img.review(src='/images/review.png', alt='review icon')
+                p Review

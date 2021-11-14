@@ -1,0 +1,28 @@
+/* css for home page*/
+
+/* tag list on home page */
+#hometag {
+    text-align: center;
+    position: relative;
+}
+
+.tag {
+    position: relative;
+    display: inline;
+    color:#333333;
+}
+
+.user {
+    width: 10%;
+    height: 10%;
+}
+
+.match {
+    width: 10%;
+    height: 10%;
+}
+
+.review {
+    width: 10%;
+    height: 10%;
+}

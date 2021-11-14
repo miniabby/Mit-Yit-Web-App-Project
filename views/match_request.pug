@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+    
+    
+    .container
+        h1 Matching Request
+        section#backbutton
+            a.btn.btn-primary(href='/match',class="button") Back
+        
+        p.empty #{empty}
+        
+        each request in requests
+            section#matchrequestsec
+                p#sendername #{request.from}
+                p #{request.from} is interested in your profile ;)
+                p#requestid #{request.id}
+
+                .acp Your have successfully matched with #{request.from}!
+                button.btn.accept(type='button') Accept
+                .rej Your have declined the request from #{request.from}!
+                button.btn.reject(type='button') Reject
+    
+    script
+        include request_script.js
+

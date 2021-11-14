@@ -1,0 +1,95 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+    
+    .container
+        h1 Writing Review
+        section#backbutton
+            a.btn.btn-primary(href='/review',class="button") Back
+
+        section#errormsg   
+            != messages('message', locals)
+            if errors
+                each error, i in errors
+                    div(class="alert") #{error.msg}
+            div(class='msg') #{msg}
+        
+        section#writereviewsec
+        
+            form(method='POST', action='/review/write')
+                #form-group
+                    label.review Your Friend's Username:
+                    br
+                    input#reviewname.form-control(name='username',type='text')
+                br
+
+                #form-group
+                    label.review Rating
+                    br
+                    .rating-group
+                        input#rating-none.rating__input.rating__input--none(disabled='', checked='', name='rating', value='0', type='radio')
+
+                        label.rating__label(aria-label='1 star', for='rating1')
+                            i.rating__icon.rating__icon--star.fa.fa-star
+                        input#rating1.rating__input(name='rating', value='1', type='radio')
+
+                        label.rating__label(aria-label='2 stars', for='rating2')
+                            i.rating__icon.rating__icon--star.fa.fa-star
+                        input#rating2.rating__input(name='rating', value='2', type='radio')
+
+                        label.rating__label(aria-label='3 stars', for='rating3')
+                            i.rating__icon.rating__icon--star.fa.fa-star
+                        input#rating3.rating__input(name='rating', value='3', type='radio')
+
+                        label.rating__label(aria-label='4 stars', for='rating4')
+                            i.rating__icon.rating__icon--star.fa.fa-star
+                        input#rating4.rating__input(name='rating', value='4', type='radio')
+
+                        label.rating__label(aria-label='5 stars', for='rating5')
+                            i.rating__icon.rating__icon--star.fa.fa-star
+                        input#rating5.rating__input(name='rating', value='5', type='radio')
+                br
+
+                #form-group
+                    label.review Tag
+                    br
+                    input#tag.form-control(name='tag',type='text' value='')
+                    br
+                    button.btn#kind(onclick="findButton('kind')" type="button") kind
+                    button.btn#boring(onclick="findButton('boring')" type="button") boring
+                    button.btn#attractive(onclick="findButton('attractive')" type="button") attractive
+                    button.btn#out-going(onclick="findButton('out-going')" type="button") out-going
+                    button.btn#humorous(onclick="findButton('humorous')" type="button") humorous
+                    button.btn#gentle(onclick="findButton('gentle')" type="button") gentle
+                    button.btn#punctual(onclick="findButton('punctual')" type="button") punctual
+                    button.btn#easy-going(onclick="findButton('easy-going')" type="button") easy-going
+
+                    script.
+                        function findButton(buttonId) {
+                            document.getElementById("tag").value = document.getElementById(buttonId).innerHTML;
+                        }
+
+                br
+                br
+                #form-group
+                    label.review Review
+                    br
+                    textarea.form-control(name='comment')
+
+                br
+                input#reviewbutton.btn.btn-primary(class="button",type='submit',value='Submit')

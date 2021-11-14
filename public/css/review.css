@@ -1,0 +1,263 @@
+/* css for review, write review and view review pages*/
+
+/* ------------------------------- REVIEW page -------------------------------*/
+/* write review section on review page*/
+#writereview{
+    float:left;
+    width:50%;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5%;
+}
+/* write review icon on review page*/
+#icon.writereview {
+    width: 50%;
+    height: 50%;
+}
+
+/* check review section on review page */
+#viewreview{
+    float:right;
+    width:50%;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5%;
+}
+/* check review icon on review page*/
+#icon.viewreview {
+    width: 50%;
+    height: 50%;
+}
+
+/* ----------------------------- WRITE REVIEW page -----------------------------*/
+/* review section on write review page*/
+#writereviewsec{
+    box-sizing: border-box;
+    background-color: rgba(255,255,255, 0.9);
+    width: 60%;
+    text-align: center;
+    padding: 3%;
+    margin-left: 20%;
+}
+
+label.review {
+    position: relative;
+    color: #39566c;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+    display: inline;
+}
+
+
+.rating-group {
+    display: inline-flex;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 50%;
+}
+
+/* make hover effect work properly in IE */
+.rating__icon {
+    pointer-events: none;
+}
+
+/* hide radio inputs */
+.rating__input {
+    position: absolute;
+    left: -9999px;
+}
+
+/* hide 'none' input from screenreaders */
+.rating__input--none {
+    display: none
+}
+
+/* set icon padding and size */
+.rating__label {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 30px;
+}
+
+/* set default star color */
+.rating__icon--star {
+    color: orange;
+    padding: 1%;
+}
+
+/* if any input is checked, make its following siblings grey */
+.rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+}
+
+/* make all stars orange on rating group hover */
+.rating-group:hover .rating__label .rating__icon--star {
+    color: orange;
+}
+
+/* make hovered input's following siblings grey on hover */
+.rating__input:hover ~ .rating__label .rating__icon--star {
+    color: #ddd;
+}
+
+/* username box in form */
+#reviewname{
+    border: 2px solid #39566c;
+}
+
+/* textarea type in form */
+textarea {
+    width: 80%;
+    height: 200px;
+    margin-top: 10px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #39566c;
+    font-size: large;
+    border: 2px solid #39566c;
+    border-radius: 4px;
+    resize: none;
+}
+
+/* tags in form */
+#tag{
+    border: 2px solid #39566c;
+    width: 30%;
+    text-align: center;
+}
+
+#kind {
+    border-color: #4CAF50;
+    color: green;
+}
+#kind:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#boring {
+    border-color: #2196F3;
+    color: dodgerblue
+}
+#boring:hover {
+    background: #2196F3;
+    color: white;
+}
+
+#attractive {
+    border-color: #ff9800;
+    color: orange;
+}
+#attractive:hover {
+    background: #ff9800;
+    color: white;
+}
+
+#out-going {
+    border-color: #f44336;
+    color: red
+}
+#out-going:hover {
+    background: #f44336;
+    color: white;
+}
+
+#humorous {
+    border-color: #e7e7e7;
+    color: black;
+}
+#humorous:hover {
+    background: #e7e7e7;
+}
+
+#gentle {
+    border-color: plum;
+    color: mediumpurple;
+}
+#gentle:hover {
+    background: plum;
+    color: white;
+}
+
+#punctual {
+    border-color: rosybrown;
+    color: brown;
+}
+#punctual:hover {
+    background: rosybrown;
+    color: white;
+}
+
+#easy-going {
+    border-color: yellowgreen;
+    color: yellowgreen;
+}
+#easy-going:hover {
+    background: yellowgreen;
+    color: white;
+}
+
+/* submit reiview button */
+#reviewbutton {
+    width: 25%;
+}
+
+
+/* ----------------------------- VIEW REVIEW page ------------------------------*/
+/* single table of review on view review page */
+#singlereview{
+    margin: 4% 17%;
+    width: 65%;
+    background-color: rgba(255,255,255, 0.9);
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    padding: 3%;
+}
+
+td.reviewlabel{
+    font-size: larger;
+    width: 20%;
+}
+td.reviewcontent{
+    width: 80%;
+    font-size: larger;
+    text-align: left;
+    font-weight: normal;
+}
+/* hide rating value in table */
+.datarating{
+    display: none;
+}
+/* show rating as stars */
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+}
+.stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #ff9800;
+}

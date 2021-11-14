@@ -1,0 +1,90 @@
+/* css for match history and match request page*/
+
+/* ------------------------------- MATCH HISTORY page -------------------------------*/
+/* match history section on match history page*/
+#matchhistorysec{
+    width:60%;
+    color:#333333;
+    box-sizing: border-box;
+    margin-top: 5%;
+    margin-left: 20%;
+    padding: 0 5%;
+}
+/* table for single history*/
+#singlehistory{
+    background-color: rgba(255,255,255, 0.9);
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    padding: 3%;
+}
+td#historylabel{
+    width: 35%;
+}
+td#historycontent{
+    width: 65%;
+    text-align: left;
+    font-weight: normal;
+}
+
+/* ------------------------------- MATCH REQUEST page -------------------------------*/
+/* match request section on match request page*/
+#matchrequestsec{
+    float: left;
+    width: 30%;
+    height: 280px;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3% 1%;
+    margin-left: 2%;
+    margin-bottom: 5%;
+    background-color: rgba(255,255,255, 0.9);
+    border-radius: 10px;
+}
+
+/* button in match request section */
+#acceptbutton{
+    width: 30%;
+    margin-left: 5%;
+    padding: 3%;
+    display: block;
+}
+
+.acp{
+    display: none;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: coral;
+}
+
+#rejectbutton{
+    width: 30%;
+    margin-left: 5%;
+    padding: 3%;
+    display: block;
+}
+
+.rej{
+    display: none;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    color: #39566c;
+}
+
+#requestid{
+    display: none;
+}
+
+#sendername{
+    font-weight: bolder;
+    font-size: x-large;
+    color: #39566c;
+}
+
+.empty{
+    text-align: center;
+    margin-top: 10%;
+    padding-top: 5%;
+    font-size: x-large;
+}

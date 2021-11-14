@@ -1,0 +1,85 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+    .container
+        h1 Find Match
+        section#backbutton
+            a.btn.btn-primary(href='/match/find',class="button") Back
+
+        div(class='empty') #{empty}
+        each user in users
+            section#matchuser
+                table#matchusertable
+                    tbody
+                        br
+                        p#username #{user.username}
+                        p#username #{user.email}
+                        tr
+                            th(colspan='2') Availability
+                        tr
+                            td Lunch:
+                            td#tdinfo #{user.availability.lunch}
+                        tr
+                            td Dinner:
+                            td#tdinfo #{user.availability.dinner}
+                        tr
+                            td Coffee:
+                            td#tdinfo #{user.availability.coffee}
+                        tr
+                            th(colspan='2') Cuisine Preference
+                        tr
+                            td Cuisine1:
+                            td#tdinfo #{user.dietary.cuisine.first}
+                        tr
+                            td Cuisine2:
+                            td#tdinfo #{user.dietary.cuisine.second}
+                        tr
+                            td Cuisine3:
+                            td#tdinfo #{user.dietary.cuisine.third}
+                
+                .likemsg Your match request has been sent
+                button.btn.like(type='button') Like     
+                button.btn.collapsible(type='button') More info
+                .moreinfo
+                    table
+                        tbody
+                            tr
+                                td Allergy:
+                                td#tdinfo #{user.dietary.allergy}
+                            tr
+                                td Religion:
+                                td#tdinfo #{user.dietary.religion}
+                            tr
+                                td Major:
+                                td#tdinfo #{user.additional.academic.major}
+                            tr
+                                td Level:
+                                td#tdinfo #{user.additional.academic.level}
+                            tr
+                                td Hobbies:
+                                td#tdinfo #{user.additional.hobbies}
+                            tr
+                                td Career:
+                                td#tdinfo #{user.additional.career}
+    
+    
+    script
+        include result_script.js
+    
+ 

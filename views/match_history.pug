@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+    .container
+        h1 Matching History
+        section#backbutton
+            a.btn.btn-primary(href='/match',class="button") Back
+
+        div(class='empty') #{empty}
+        each history in histories
+            section#matchhistorysec
+                table#singlehistory
+                    tbody
+                        tr
+                            td#historylabel Sent By: 
+                            td#historycontent #{history.from}
+                        tr 
+                            td#historylabel Recieved By:
+                            td#historycontent #{history.to}
+                        tr
+                            td#historylabel Status:
+                            td#historycontent #{history.status}

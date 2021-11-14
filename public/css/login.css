@@ -1,0 +1,14 @@
+/* css for login page*/
+
+/* login form on login page*/
+#loginform{
+    width: 35%;
+    background-color: rgba(255,255,255, 0.9);
+    margin-top: 10%;
+    padding-bottom: 50px;
+    border-style: double;
+    border-color: #39566c;
+    border-width: 7px;
+    text-align: center;
+
+}

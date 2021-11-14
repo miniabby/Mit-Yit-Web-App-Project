@@ -1,0 +1,12 @@
+diff --git a/Controllers/matchController.js b/controllers/matchController.js
+similarity index 100%
+rename from Controllers/matchController.js
+rename to controllers/matchController.js
+diff --git a/Controllers/reviewController.js b/controllers/reviewController.js
+similarity index 100%
+rename from Controllers/reviewController.js
+rename to controllers/reviewController.js
+diff --git a/Controllers/userController.js b/controllers/userController.js
+similarity index 100%
+rename from Controllers/userController.js
+rename to controllers/userController.js

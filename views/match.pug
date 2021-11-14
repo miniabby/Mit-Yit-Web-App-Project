@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+
+    .container
+        h1 Match
+        div(class='msg') #{msg}
+           
+        section#matchicon
+            a(href='/match/history')
+                img#icon.matchicon(src='/images/history.png', alt='match history icon')
+            p Match history
+        section#matchicon
+            a(href='/match/find')
+                img#icon.matchicon(src='/images/date.png', alt='find match icon')
+            p Find a match 
+        section#matchicon
+            a(href='/match/request')
+                img#icon.matchicon(src='/images/request.png', alt='match request icon')
+            p Match Request

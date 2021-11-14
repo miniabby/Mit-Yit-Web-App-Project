@@ -1,0 +1,115 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+
+    h1 Personal Profile
+    div(class='msg') #{msg}
+    .container
+        section#profile
+            .tab
+                button#defaultOpen.tablinks(onclick="openProfile(event, 'BasicProfile')") Basic Profile
+                button.tablinks(onclick="openProfile(event, 'CuisinePreference')") Cuisine Preference
+                button.tablinks(onclick="openProfile(event, 'Availability')") Availability
+                button.tablinks(onclick="openProfile(event, 'AdditionalInformation')") Additional Information
+            #BasicProfile.tabcontent
+                table
+                    tbody
+                        tr
+                            th(colspan='2') Basic Profile
+                        tr
+                            td Username:
+                            td#tdinfo #{user.username}
+                        tr
+                            td Email:
+                            td#tdinfo #{user.email}
+                        tr
+                            td Gender:
+                            td#tdinfo #{user.gender}
+            #CuisinePreference.tabcontent
+                table
+                    tbody
+                        tr
+                            th(colspan='2') Cuisine Preference
+                        tr
+                            td Cuisine1:
+                            td#tdinfo #{user.dietary.cuisine.first}
+                        tr
+                            td Cuisine2:
+                            td#tdinfo #{user.dietary.cuisine.second}    
+                        tr
+                            td Cuisine3:
+                            td#tdinfo #{user.dietary.cuisine.third}    
+                        tr
+                            td Allergy:
+                            td#tdinfo #{user.dietary.allergy}
+                        tr
+                            td Religion:
+                            td#tdinfo #{user.dietary.religion}
+            #Availability.tabcontent
+                table
+                    tbody
+                        tr
+                            th(colspan='2') Availability
+                        tr
+                            td Lunch:
+                            td#tdinfo #{user.availability.lunch}
+                        tr
+                            td Dinner:
+                            td#tdinfo #{user.availability.dinner}
+                        tr
+                            td Coffee:
+                            td#tdinfo #{user.availability.coffee}
+
+            #AdditionalInformation.tabcontent
+                table
+                    tbody
+                        tr
+                            th(colspan='2') Additional Information
+                        tr
+                            td Major:
+                            td#tdinfo #{user.additional.academic.major}
+                        tr
+                            td Level:
+                            td#tdinfo #{user.additional.academic.level}
+                        tr
+                            td Hobbies:
+                            td#tdinfo #{user.additional.hobbies}
+                        tr
+                            td Career:
+                            td#tdinfo #{user.additional.career}
+
+                    script.
+                        function openProfile(evt, secName) {
+                            var i, tabcontent, tablinks;
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+                            document.getElementById(secName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                        // Get the element with id="defaultOpen" and click on it
+                        document.getElementById("defaultOpen").click();
+
+    section#editbutton
+        a.btn.btn-primary(href='/user/edit',class="button") Edit

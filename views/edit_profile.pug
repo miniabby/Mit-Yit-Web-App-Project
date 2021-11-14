@@ -1,0 +1,161 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+        nav#navbar
+            ul
+                li
+                    a(href='/user/profile') Profile&nbsp;
+                li
+                    a(href='/match') Match&nbsp;
+                li
+                    a(href='/review') Review&nbsp;
+        section#logouticon
+            a(href='/user/logout')
+                img.logout(src='/images/logout.png', alt='logout icon')
+
+
+    h1 Personal Profile
+    h5 (* Must provide field)
+
+    .container.profileform
+        
+        div(class='msg') #{msg}
+        != messages('message', locals)
+        if errors
+            each error, i in errors
+                div(class="alert") #{error.msg}
+
+        form(method='POST', action='/user/edit')
+            h2 Basic Profile
+            section#basicprofile
+                #form-group
+                    label Username:*
+                    input.form-control(name='username',type='text',value=user.username)
+                #form-group
+                    label Email:*
+                    input.form-control(name='email', type='text', value=user.email)
+                #form-group
+                    label Password:*
+                    input.form-control(name='password',type='password', value=user.password)
+                #form-group
+                    label Confirm:*
+                    input.form-control(name='password2',type='password', value=user.password)
+                #form-group
+                    label Gender:
+                    select(name='gender', value=user.gender)
+                        option(value='Male', selected = (user.gender == 'Male')) Male
+                        option(value='Female',selected = (user.gender == 'Female')) Female
+                        option(value='Other',selected = (user.gender == 'Other')) Other
+
+            h2 Cuisine Preference
+            section#cuisine
+                #form-group
+                    label Cuisine1:
+                    select(name='first', value=user.dietary.cuisine.first)
+                        option(value='', selected = (user.dietary.cuisine.first == '')) Choose here
+                        option(value='American', selected = (user.dietary.cuisine.first == 'American')) American
+                        option(value='British', selected = (user.dietary.cuisine.first == 'British')) British
+                        option(value='Chinese', selected = (user.dietary.cuisine.first == 'Chinese')) Chinese
+                        option(value='French', selected = (user.dietary.cuisine.first == 'French')) French
+                        option(value='Greek', selected = (user.dietary.cuisine.first == 'Greek')) Greek
+                        option(value='Indian', selected = (user.dietary.cuisine.first == 'Indian')) Indian
+                        ption(value='Italian', selected = (user.dietary.cuisine.first == 'Italian')) Italian
+                        option(value='Japanese', selected = (user.dietary.cuisine.first == 'Japanese')) Japanese
+                        ption(value='Korean', selected = (user.dietary.cuisine.first == 'Korean')) Korean
+                        ption(value='Mediterranean', selected = (user.dietary.cuisine.first == 'Mediterranean')) Mediterranean
+                        option(value='Mexican', selected = (user.dietary.cuisine.first == 'Mexican')) Mexican
+                        option(value='Spanish', selected = (user.dietary.cuisine.first == 'Spanish')) Spanish
+                        option(value='Thai', selected = (user.dietary.cuisine.first == 'Thai')) Thai
+                #form-group
+                    label Cuisine2:
+                    select(name='second', value=user.dietary.cuisine.second)
+                        option(value='', selected = (user.dietary.cuisine.first == '')) Choose here
+                        option(value='American', selected = (user.dietary.cuisine.second == 'American')) American
+                        option(value='British', selected = (user.dietary.cuisine.second == 'British')) British
+                        option(value='Chinese', selected = (user.dietary.cuisine.second == 'Chinese')) Chinese
+                        option(value='French', selected = (user.dietary.cuisine.second == 'French')) French
+                        option(value='Greek', selected = (user.dietary.cuisine.second == 'Greek')) Greek
+                        option(value='Indian', selected = (user.dietary.cuisine.second == 'Indian')) Indian
+                        option(value='Italian', selected = (user.dietary.cuisine.second == 'Italian')) Italian
+                        option(value='Japanese', selected = (user.dietary.cuisine.second == 'Japanese')) Japanese
+                        ption(value='Korean', selected = (user.dietary.cuisine.second == 'Korean')) Korean
+                        ption(value='Mediterranean', selected = (user.dietary.cuisine.second == 'Mediterranean')) Mediterranean
+                        option(value='Mexican', selected = (user.dietary.cuisine.second == 'Mexican')) Mexican
+                        option(value='Spanish', selected = (user.dietary.cuisine.second == 'Spanish')) Spanish
+                        option(value='Thai', selected = (user.dietary.cuisine.second == 'Thai')) Thai        
+                #form-group
+                    label Cuisine3:
+                    select(name='third', value=user.dietary.cuisine.third)
+                        option(value='', selected = (user.dietary.cuisine.first == '')) Choose here
+                        option(value='American', selected = (user.dietary.cuisine.third == 'American')) American
+                        option(value='British', selected = (user.dietary.cuisine.third == 'British')) British
+                        option(value='Chinese', selected = (user.dietary.cuisine.third == 'Chinese')) Chinese
+                        option(value='French', selected = (user.dietary.cuisine.third == 'French')) French
+                        option(value='Greek', selected = (user.dietary.cuisine.third == 'Greek')) Greek
+                        option(value='Indian', selected = (user.dietary.cuisine.third == 'Indian')) Indian
+                        option(value='Italian', selected = (user.dietary.cuisine.third == 'Italian')) Italian
+                        option(value='Japanese', selected = (user.dietary.cuisine.third == 'Japanese')) Japanese
+                        ption(value='Korean', selected = (user.dietary.cuisine.third == 'Korean')) Korean
+                        ption(value='Mediterranean', selected = (user.dietary.cuisine.third == 'Mediterranean')) Mediterranean
+                        option(value='Mexican', selected = (user.dietary.cuisine.third == 'Mexican')) Mexican
+                        option(value='Spanish', selected = (user.dietary.cuisine.third == 'Spanish')) Spanish
+                        option(value='Thai', selected = (user.dietary.cuisine.third == 'Thai')) Thai
+                #form-group
+                    label Allergy:
+                    input.form-control(name='allergy', type='text', value=user.dietary.allergy)
+
+                #form-group
+                    label Religion:
+                    input.form-control(name='religion', type='text', value=user.dietary.religion)   
+
+
+
+            h2 Availability
+            section#availability
+                #form-group
+                    label Lunch:
+                    select(name='lunch', value=user.availability.lunch)
+                        option(value='', selected = (user.availability.lunch == '')) Choose here
+                        option(value='Yes', selected = (user.availability.lunch == 'Yes')) Yes
+                        option(value='No', selected = (user.availability.lunch == 'No')) No
+
+                #form-group
+                    label Dinner:
+                    select(name='dinner', value=user.availability.dinner)
+                        option(value='', selected = (user.availability.lunch == '')) Choose here
+                        option(value='Yes', selected = (user.availability.dinner == 'Yes')) Yes
+                        option(value='No', selected = (user.availability.dinner == 'No')) No
+
+                #form-group
+                    label Coffee:
+                    select(name='coffee', value=user.availability.coffee)
+                        option(value='', selected = (user.availability.lunch == '')) Choose here
+                        option(value='Yes',selected = (user.availability.coffee == 'Yes')) Yes
+                        option(value='No',selected = (user.availability.coffee == 'No')) No
+
+
+            h2 Additional Information
+            section#aditional
+                #form-group
+                    label Major:
+                    input.form-control(name='major', type='text', value=user.additional.academic.major)
+
+                #form-group
+                    label Level:
+                    input.form-control(name='level', type='number', value=user.additional.academic.level)
+
+                #form-group
+                    label Hobbies:
+                    input.form-control(name='hobbies', type='text', value=user.additional.hobbies)
+
+                #form-group
+                    label Career:
+                    input.form-control(name='career', type='text', value=user.additional.career)
+
+            br
+            input#updatebutton.btn.btn-primary(class="button",type='submit',value='Update')
+

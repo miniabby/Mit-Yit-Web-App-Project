@@ -1,0 +1,46 @@
+/* css for index page*/
+
+/* introdution on index page*/
+#indexintro{
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    vertical-align: text-bottom;
+    margin-top: 5%;
+    margin-bottom: -3%;
+}
+
+/* register section on index page*/
+#register{
+    float:left;
+    width:50%;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10%;
+    vertical-align: middle;
+    margin:0;
+}
+/* register icon on index page*/
+#icon.register {
+    width: 50%;
+    height: 50%;
+    color:#333333;
+}
+
+/* login section on index page */
+#login{
+    float:right;
+    width:50%;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10%;
+}
+/* login icon on index page*/
+#icon.login {
+    width: 50%;
+    height: 50%;
+    color: #333333;
+}
+

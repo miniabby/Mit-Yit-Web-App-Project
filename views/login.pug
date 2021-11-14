@@ -1,0 +1,27 @@
+extends layout
+
+block content
+
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+    
+    .container#loginform
+        h1 Hello
+        section#errormsg
+            != messages('message', locals)
+            if errors
+                each error, i in errors
+                    div(class="alert") #{error.msg}
+            div(class='msg') #{msg}
+        
+        form(method='POST', action='/user/login')
+            #form-group
+                label Username:&nbsp;
+                input.form-control(name='username', type='text')
+            #form-group
+                label Password:&nbsp;
+                input.form-control(name='password',type='password')
+            br
+            input.btn.btn-primary(class="button",type='submit',value='Login')

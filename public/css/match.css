@@ -1,0 +1,119 @@
+/* css for match page*/
+
+/* ------------------------------- MATCH page -------------------------------*/
+#matchicon{
+    float:left;
+    width:33.3%;
+    color:#333333;
+    box-sizing: border-box;
+    text-align: center;
+    height:400px;
+    padding-top: 10%;
+}
+/* write review icon on review page*/
+#icon.matchicon {
+    width: 50%;
+    height: 55%;
+    
+}
+
+/* ------------------------------- FIND MATCH page -------------------------------*/
+/* matching section on match page*/
+#matching {
+    background-color: rgba(255,255,255, 0.9);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 3%;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 8%;
+}
+
+p.comment {
+    font-size: medium;
+}
+
+
+/* label availability */
+.availability {
+    display: inline;
+    position: relative;
+    padding-right: 30px;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* hide default checkbox */
+.availability input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* create custom checkbox */
+.checkmark {
+    position: absolute;
+    display: inline-flex;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #ccc;
+    
+}
+
+/* checkbox hover color */
+.availability:hover input ~ .checkmark {
+    background-color: #9AB2B6;
+}
+
+/* checkbox checked color */
+.availability input:checked ~ .checkmark {
+    background-color: #39566c;
+}
+
+/* create checkmark in checkbox after checked */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* show checkmark when checked */
+.availability input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* checkmark */
+.availability .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* cuisine selection */
+select.cuisine {
+    width: 35%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #39566c;
+    font-size: medium;
+}
+/* match button */
+#matchbutton{
+    text-align: center;
+    width: 25%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+
+}

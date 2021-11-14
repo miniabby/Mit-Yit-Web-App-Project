@@ -1,0 +1,133 @@
+extends layout
+
+block content
+    .container#navbarsec
+        section#homeicon
+            a(href='/home')
+                img.home(src='/images/home.png', alt='home icon')
+
+
+    .container.profileform
+        h1 Welcome
+        h5 (* Must provide field)
+        div(class='msg') #{msg}
+        section#errormsg
+            != messages('message', locals)
+            if errors
+                 each error, i in errors
+                     div(class="alert") #{error.msg}
+        section
+            form(id='myform' method="POST" action='/user/signup')
+
+                h2 Basic Profile
+                section#basicprofile
+                    #form-group
+                        label Username:*
+                        input.form-control(name='username',type='text')
+                    #form-group
+                        label Email:*
+                        input.form-control(name='email', type='text')
+                    #form-group
+                        label Password:*
+                        input.form-control(name='password',type='password')
+                    #form-group
+                        label Confirm:*
+                        input.form-control(name='password2',type='password')
+                    #form-group
+                        label Gender:
+                        select(name='gender')
+                            option(value='', selected) Choose here
+                            option(value='Male') Male
+                            option(value='Female') Female
+                            option(value='Other') Other
+
+                h2 Cuisine Preference
+                section#cuisine
+                    #form-group
+                        label Cuisine1:
+                        select(name='first')
+                            option(value='', selected) Choose here
+                            option(value='American') American
+                            option(value='British') British
+                            option(value='Chinese') Chinese
+                            option(value='French') French
+                            option(value='Greek') Greek
+                            option(value='Indian') Indian
+                            option(value='Italian') Italian
+                            option(value='Japanese') Japanese
+                            option(value='Korean') Korean
+                            option(value='Mediterranean') Mediterranean
+                            option(value='Mexican') Mexican
+                            option(value='Spanish') Spanish
+                            option(value='Thai') Thai
+
+
+                    #form-group
+                        label Cuisine2:
+                        select(name='second')
+                            option(value='', selected) Choose here
+                            option(value='American') American
+                            option(value='British') British
+                            option(value='Chinese') Chinese
+                            option(value='French') French
+                            option(value='Greek') Greek
+                            ption(value='Indian') Indian
+                            option(value='Italian') Italian
+                            option(value='Japanese') Japanese
+                            option(value='Korean') Korean
+                            option(value='Mediterranean') Mediterranean
+                            option(value='Mexican') Mexican
+                            option(value='Spanish') Spanish
+                            option(value='Thai') Thai
+                
+                    #form-group
+                        label Cuisine3:
+                        select(name='third')
+                            option(value='', selected) Choose here
+                            option(value='American') American
+                            option(value='British') British
+                            option(value='Chinese') Chinese
+                            option(value='French') French
+                            option(value='Greek') Greek
+                            option(value='Indian') Indian
+                            option(value='Italian') Italian
+                            option(value='Japanese') Japanese
+                            option(value='Korean') Korean
+                            option(value='Mediterranean') Mediterranean
+                            option(value='Mexican') Mexican
+                            option(value='Spanish') Spanish
+                            option(value='Thai') Thai
+
+                        
+                    #form-group
+                        label Allergy:
+                        input.form-control(name='allergy',type='text')
+
+                    #form-group
+                        label Religion:
+                        input.form-control(name='religion',type='text')
+                            
+
+                h2 Availability
+                section#availability
+                    #form-group
+                        label Lunch:
+                        select(name='lunch')
+                            option(value='', selected) Choose here
+                            option(value='Yes') Yes
+                            option(value='No') No
+                    #form-group
+                        label Dinner:
+                        select(name='dinner')
+                            option(value='', selected) Choose here
+                            option(value='Yes') Yes
+                            option(value='No') No
+                    #form-group
+                        label Coffee:
+                        select(name='coffee')
+                            option(value='', selected) Choose here
+                            option(value='Yes') Yes
+                            option(value='No') No
+
+                br
+                input.btn.btn-primary#submitbutton(class="button",type='submit',value='Submit')
